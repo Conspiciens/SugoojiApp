@@ -1,0 +1,12 @@
+{
+  "name": "SugoojiApp",
+  "displayName": "SugoojiApp",
+  "expo": {
+    "name": "SugoojiApp",
+    "slug": "SugoojiApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
