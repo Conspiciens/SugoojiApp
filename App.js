@@ -1,21 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component, useEffect, useState} from 'react';
+import { render } from 'react-dom';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { AppRegistry, ScrollView, Image, text} from 'react-native';
+import Card  from './components/Card';
+
+const customData = require('./quotes.json');
+var quoteArray = [];
+for (var i = 0; i < customData.Quotes.length; i++)
+{
+  quoteArray.push(customData.Quotes[i]);
+}
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
+      <Card />
     </View>
   );
-}
+} 
 
+// <Button style={styles.button} onPress={<Card />} title="Refresh" color="#841584"/>
+//<Button style={styles.button} onPress={<onClickButton1/>} title="Refresh" color="#841584"/>
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    height: '100%', 
+  } 
 });
