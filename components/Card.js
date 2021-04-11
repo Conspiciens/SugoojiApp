@@ -1,34 +1,19 @@
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, Text, StyleSheet, Button, Image} from 'react-native';
 
 
-class Card extends Component {
+const Card = (props) => {
 //constructor passes in info into Card
 //create cards from app.js with new keyword
-    
-    Constructor(props){
-        super(props)
-    }
-    
-    state = {
-        text: 'Click Refresh for a New Idea!'
-    }
-    
-    onClickButton1 = () => {
-        this.setState({
-          text: 'johann is a fat boy'
-        });
-    }
-
-    render(){ 
-        return (
-            <View style={styles.placeholder}>
-                <View style={styles.content}>
-                    <Text>{this.state.text}</Text>
-                </View>
-                <Button buttonstyle={styles.button} onPress={this.onClickButton1} title="Refresh" color="#841584"/>
-            </View>
-    )}
+    return (
+        <View style={styles.content}>
+            <Text style={styles.text_bold}>"{props.text}"</Text>
+            <Text style={styles.authorText}>-{props.author}</Text>
+            <Image style = {{width: 150, height: 150}} 
+            source = {{uri:props.imageUri}}
+            resizeMode={'cover'}/>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -41,19 +26,29 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     content: {
-        backgroundColor: 'gray',
+        backgroundColor: 'pink',
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
         width: '90%',
-        height: '80%',
+        height: '70%',
         marginTop: '10%',
         marginBottom: '5%',
+        padding: '10%',
+        overflow: 'hidden',
+        borderRadius: 40,
       },
-      
-    button: {
-        marginBottom: '5%',
-    }, 
+    
+      text_bold: {
+          fontSize: 25,
+          fontWeight: "bold",
+          marginBottom: 15,
+      },
+
+      authorText: {
+          fontSize: 15,
+          marginBottom: 15,
+      },
 });
 
 export default Card; 
